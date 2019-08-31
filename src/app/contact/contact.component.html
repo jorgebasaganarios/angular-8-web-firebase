@@ -1,0 +1,29 @@
+<div class="modal-header">
+  <h4 class="modal-title">Contact form</h4>
+  </div>
+<div class="modal-body">
+  <form [formGroup]="contactForm" (ngSubmit)="saveContact()">
+    <div class="form-group">
+      <label for="title">Name*</label>
+      <input type="text" id="name" placeholder="name" class="form-control" formControlName="nombre" />
+      <span style="color:Red;" *ngIf="contactForm.controls['nombre'].touched && contactForm.controls['nombre'].errors?.required">Name
+        is required.</span>
+    </div>
+    <div class="form-group">
+      <label for="description">E-mail*</label>
+      <textarea  id="email" placeholder="email" class="form-control" formControlName="email"></textarea>
+      <span style="color:Red;" *ngIf="contactForm.controls['email'].touched && contactForm.controls['email'].errors?.required">E-mail
+        is required.</span>
+    </div>
+    <div class="form-group">
+      <label for="description">Message*</label>
+      <textarea  id="message" placeholder="message" class="form-control" formControlName="mensaje"></textarea>
+      <span style="color:Red;" *ngIf="contactForm.controls['mensaje'].touched && contactForm.controls['mensaje'].errors?.required">Mesage
+        is required.</span>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <!-- <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button> -->
+  <button class="btn btn-primary" (click)="saveContact()" [disabled]="contactForm.invalid">Enviar</button>
+</div>

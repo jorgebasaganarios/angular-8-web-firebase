@@ -1,0 +1,10 @@
+<div class="displayTable">
+  <div class="displayTableCell">
+  <div class="authBlock">
+  <div class="formGroup" *ngIf="authService.userData as user; else visitant">
+  <p class="home-message">Hi {{ user.email }}! Welcome to our new Angular 8 + Firebase web site!</p>
+</div>
+<ng-template #visitant>
+  <p class="home-message">Welcome to our new Angular 8 + Firebase web site!</p>
+  <p class="home-message">Log in <a routerLink="/sign-in">here</a>.</p>
+</ng-template>
